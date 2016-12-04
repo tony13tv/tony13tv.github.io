@@ -1,0 +1,19 @@
+<DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+      var conn = new WebSocket('ws://api.lynext.com/ws');
+      conn.onopen = function(){
+        console.log('Connection stablished!');
+      };
+      
+      conn.onmessage = function(e) {
+        users = JSON.parse(e.data);
+        console.log(e.data)
+      };
+    </script>
+  </body>
+</html>
