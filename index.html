@@ -6,13 +6,24 @@
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
       var conn = new WebSocket('ws://api.lynext.com/ws');
+      var width = ['70%', '75%', '80%', '85%', '90%', '95%']
       conn.onopen = function(){
         console.log('Connection stablished!');
       };
       
       conn.onmessage = function(e) {
         users = JSON.parse(e.data);
-        console.log(e.data)
+        $('body').html('');
+        if(users > 1) {
+          for(i = users-2; i >= 0; i--) {
+            var newChild = $('<div/>').addClass('content mCustomScrollbar nested').appendTo(lastChild)
+            if(Math.floor(Math.random() * width.length) % 2 != 0) {
+              newChild.addClass('horizontal')
+            }
+            newChild.html('<img src="http://placehold.it/1080x6000"/>')
+            lastChild = newChild
+          }
+        }
       };
     </script>
   </body>
