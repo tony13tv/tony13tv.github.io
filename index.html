@@ -11,7 +11,7 @@
       
       conn.onmessage = function(e) {
         users = JSON.parse(e.data);
-        $('body').html('');
+        var lastChild = $('body').html('');
         if(users > 1) {
           for(i = users-2; i >= 0; i--) {
             var newChild = $('<div/>').addClass('content mCustomScrollbar nested').appendTo(lastChild)
