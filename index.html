@@ -18,7 +18,7 @@
             if(Math.floor(Math.random() * width.length) % 2 != 0) {
               newChild.addClass('horizontal')
             }
-            newChild.html('<img src="http://placehold.it/1080x6000"/>')
+            newChild.html('<img src="http://placehold.it/1080x6000/' + Math.floor(Math.random() * 16777215).toString(16) + '"/>')
             lastChild = newChild
           }
         }
